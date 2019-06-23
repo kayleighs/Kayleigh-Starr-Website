@@ -1,36 +1,53 @@
-* { box-sizing: border-box;
-
+* { 
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+ 
 }
-html, body, .page-wrap {
-    height: 100%;
+html,
+body {
+width: 100%;
+height: 100%;
+/* margin: 0; */
+}
+html {
+/*     position: relative; */
+    
 }
 
 body {
     font-family: 'Lato', sans-serif;
     color: #777777;
     font-size:18px;
+}
+.background-wrap {
+    display:block;
+  min-height: 100%;
+    position: relative;
+  display: grid;
+/*   grid-template-rows: 1fr auto; */
+grid-template-rows: auto 1fr auto;
+    grid-template-columns: 100%;
+}
+
+.background-wrap::before {
+    background: url("../images/ks-chalk-2.png") no-repeat center center fixed; 
+  background-size: cover; /* or contain depending on what you want */
+  opacity: .97;
+    content: "";
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1; 
+    -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 
 }
-.page-wrap {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-}
-.page-wrap::after {
-    content: "";
-    background: url("../images/ks-chalk-2.png") no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    opacity: 0.9;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    position: absolute;
-    z-index: -1;   
-}
+
 .ks-box {
     background-color: rgba(255, 255, 255, 0.8) ;
 /*     background: url("../images/fabric_1.png"); */
@@ -43,6 +60,8 @@ body {
 header {
     border-bottom: 1px solid #cccccc;
     height: 80px;
+        grid-row-start: 1;
+  grid-row-end: 2;
 }
 .headerCenter {
     width: 960px;
@@ -119,9 +138,11 @@ a:active {
     width: 960px;
     margin: 0 auto;
     border: 1px solid #dddddd;
-    flex: 1 0 auto;
     margin-top: 40px;
-    margin-bottom: 100px;
+    box-shadow: .5rem 1rem 1rem rgba(0, 0, 0, 0.15);
+    background-color: rgba(255, 255, 255, 0.8) ;
+    max-height: 635px
+
 }
 .content-box h2 {
     font-size: 40px;
@@ -163,8 +184,11 @@ footer {
     font-size: 14px;
     height: 50px;
     clear: both;
-    flex-shrink: 0;
     padding-top: 18px;
+    margin-top: 50px;
+          grid-row-start: 3;
+  grid-row-end: 4;
+
 }
 
 
@@ -271,6 +295,9 @@ input[type=text], select, textarea {
     padding: 20px;
   }
 @media screen and (max-width: 980px) {
+    .page-wrap::before{
+        background-image: url("../images/ks-chalk-2.png");
+    }
     .headerCenter {
         max-width: 880px;
         width: 95%;
@@ -290,7 +317,8 @@ input[type=text], select, textarea {
         width:95%;
         float: left;
         margin-left: 50px;
-        margin-bottom: 200px;
+/*         margin-bottom: 200px; */
+    max-height: 1000px
     }
     #portrait {
     width: 25%;
@@ -303,7 +331,7 @@ input[type=text], select, textarea {
         width: 305px;
         height: 227px;
     }
-    footer {
+/*     footer {
         font-size: 12px;
         height: 90px;
         padding-top: 0px;
@@ -312,10 +340,14 @@ input[type=text], select, textarea {
     small {
         display: table-cell;
         vertical-align: middle;
-    }
+    } */
 } 
 
 @media screen and (max-width: 768px) {
+    .page-wrap::before{
+        background-image: url("../images/ks-chalk-2.png");
+    }
+
     .headerCenter {
         max-width: 768px;
         width: 95%;
@@ -332,9 +364,10 @@ input[type=text], select, textarea {
         width: 95%;
         float: left;
         margin-left: 20px;
-        flex: 1 0 auto;
+/*         flex: 1 0 auto; */
         margin-top: 40px;
-        margin-bottom: 200px;
+/*         margin-bottom: 200px; */
+ max-height: 850px;
     }
     #portrait {
         width: 35%;
@@ -347,7 +380,7 @@ input[type=text], select, textarea {
         width: 245px;
         height: 183px;
     }
-    footer {
+/*     footer {
         font-size: 12px;
         height: 90px;
         padding-top: 0px;
@@ -356,9 +389,12 @@ input[type=text], select, textarea {
     small {
         display: table-cell;
         vertical-align: middle;
-    }
+    } */
 } 
 @media screen and (max-width: 640px) {
+        .page-wrap::before{
+        background-image: url("../images/ks-chalk-2.png");
+    }
     .headerCenter {
         width: 100%;
         margin-left: 0px;
@@ -369,8 +405,8 @@ input[type=text], select, textarea {
         height: 80px;
         float: left;
         text-align: center;
-        padding: 25px 0px;
         text-decoration:none;
+        padding-top: 20px;
     }
        .navigation-bar {
         float: left;
@@ -381,6 +417,7 @@ input[type=text], select, textarea {
         border-bottom: 1px solid #cccccc;
         padding-top: 15px;
         padding-bottom: 15px;
+        margin-top: 0px;
     }
     #header-links {
         display: inline-block;
@@ -390,7 +427,9 @@ input[type=text], select, textarea {
         max-width: 600px;
         width: 92%;
         margin-top: 100px;
-        margin-bottom: 200px;
+/*         margin-bottom: 20px; */
+        padding-bottom: 20px;
+    max-height: 4500px
     }
     #portrait {
         width: 100%;
@@ -410,8 +449,9 @@ input[type=text], select, textarea {
         height: 440px;
         width: 100%;
         margin: 0;
+        margin-bottom: 10px;
 }
-    footer {
+/*     footer {
         font-size: 12px;
         height: 90px;
         padding-top: 0px;
@@ -420,5 +460,5 @@ input[type=text], select, textarea {
     small {
         display: table-cell;
         vertical-align: middle;
-    }
+    } */
 } 
