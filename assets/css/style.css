@@ -51,11 +51,14 @@ grid-template-rows: auto 1fr auto;
 .ks-box {
     background-color: rgba(255, 255, 255, 0.8) ;
 /*     background: url("../images/fabric_1.png"); */
-    box-shadow: .5rem 1rem 1rem rgba(0, 0, 0, 0.15);
+/*     box-shadow: .5rem 1rem 1rem rgba(0, 0, 0, 0.15); */
 }
 /* .ks-color-accent {
         background-color: rgba(13,13,13,.5);
 } */
+.transparent-box {
+    background-color: rgba(255, 255, 255, 0);
+}
 /* Header */
 header {
     border-bottom: 1px solid #cccccc;
@@ -129,7 +132,7 @@ a:active {
 }
 #header-links a:hover {
     font-size: 25px;
-    color: #4AAAA5;
+    color: rgba(51, 156, 199, 0.9);
     transition: .5s ease;
 }
 /* Content for Index */
@@ -206,8 +209,12 @@ footer {
 .portfolio-covers:hover {
     border: 2px solid  rgba(13,13,13,.5);
 }
+.work:hover .portfolio-covers {
+    border: 2px solid  rgba(13,13,13,.5);
+}
 .work:hover .dropbtn{
-    background: rgba(13,13,13,.5);
+    background: rgba(51, 156, 199, 0.9);
+
     height: 70px;
     font-size:20px;
     padding: 20px 0;
@@ -227,7 +234,8 @@ footer {
     width: 100%;
     padding: 15px;
     margin-bottom: 0;
-    background-color:rgba(51, 156, 199, 0.9);
+/*     background-color:rgba(51, 156, 199, 0.9); */
+    background: rgba(97, 97, 97, 0.9);
     color: #ffffff;;
     padding: 16px;
     font-size: 16px;
@@ -243,7 +251,7 @@ footer {
     display: none;
     top: -20px;
     position: absolute;
-    background-color: #f1f1f1;
+    background-color: #e0e0e0;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
@@ -258,13 +266,13 @@ footer {
 }
 
 /* Change color of dropdown links on hover */
-.dropdown-content a:hover {background-color: #ddd;}
+.dropdown-content a:hover {background-color: rgb(172, 172, 172);}
 
 /* Show the dropdown menu on hover */
-.dropdown:hover .dropdown-content {display: block;}
+.work:hover .dropdown-content {display: block;}
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
-.dropdown:hover .dropbtn {background-color: #3e8e41;}
+.dropdown:hover .dropbtn {background-color: rgba(13,13,13,.5);}
 
 /*Content-for-Contact*/
 
@@ -294,6 +302,14 @@ input[type=text], select, textarea {
     background-color: #ffffff;
     padding: 20px;
   }
+  .center {
+    margin: auto;
+    text-align:center;
+  }
+.resume {
+    text-decoration: underline;
+    margin-top: 25px;
+}
 @media screen and (max-width: 980px) {
     .page-wrap::before{
         background-image: url("../images/ks-chalk-2.png");
